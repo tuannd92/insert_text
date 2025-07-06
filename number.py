@@ -29,7 +29,7 @@ class BettingSlipEditor(QMainWindow):
         self.image_path = None
         self.original_pixmap = None
         self.current_pixmap = None
-        self.font_size = 95  
+        self.font_size = 90  
 
         self.target_region = {
             "x": 341,  
@@ -113,11 +113,11 @@ class BettingSlipEditor(QMainWindow):
         font_layout.addWidget(QLabel("Kích thước:"), 0, 0)
         self.font_slider = QSlider(Qt.Horizontal)
         self.font_slider.setRange(10, 1000)
-        self.font_slider.setValue(95)
+        self.font_slider.setValue(90)
         self.font_slider.valueChanged.connect(self.update_font_size)
         font_layout.addWidget(self.font_slider, 0, 1)
 
-        self.font_size_label = QLabel("95px")
+        self.font_size_label = QLabel("90px")
         font_layout.addWidget(self.font_size_label, 1, 1)
 
         font_group.setLayout(font_layout)
@@ -339,12 +339,12 @@ class BettingSlipEditor(QMainWindow):
         text_height = bbox[3] - bbox[1]
 
         # Tính lại vị trí vẽ để text căn giữa vào (x, y)
-        text_x = x - text_width 
-        text_y = y - text_height // 4
+        text_x = x - text_width // 2
+        text_y = y - text_height // 2
 
         # Tạo background cũng căn giữa
-        padding_x = 15   
-        padding_y = 15
+        padding_x = 18   
+        padding_y = 17
         bg_x1 = text_x - padding_x
         bg_y1 = text_y - padding_y
         bg_x2 = text_x + text_width + padding_x
